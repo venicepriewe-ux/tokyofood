@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Kitchen | Authentic Japanese</title>
+    <link rel="stylesheet" href="style.css">
+     
+<style>
 		/* Overlay */
 		.welcome-overlay {
 			position: fixed;
@@ -156,13 +162,6 @@
 	</div>
 </div>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tokyo Kitchen | Authentic Japanese</title>
-    <link rel="stylesheet" href="style.css">
-     
-</head>
-<body>
 
     <header>
         <a href="#" class="logo">Tokyo<span>Kitchen</span></a>
@@ -436,6 +435,31 @@
 
     document.addEventListener("click", handleSomeClick);
 </script>
-  
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+        const overlay = document.getElementById("welcomeOverlay");
+        const closeBtn = document.getElementById("closeWelcome");
+        const body = document.getElementById("myBody");
+
+        // OPEN popup on load
+        overlay.classList.remove("hidden");
+        document.body.classList.add("no-scroll");
+
+        // CLOSE on ❌ click
+        closeBtn.addEventListener("click", () => {
+            overlay.classList.add("hidden");
+            document.body.classList.remove("no-scroll");
+        });
+        body.addEventListener("click", () => {
+            overlay.classList.add("hidden");
+            document.body.classList.remove("no-scroll");
+        });
+    });
+
+    window.addEventListener('scroll', function(){
+        const header = document.querySelector('header');
+        header.classList.toggle("sticky", window.scrollY > 0);
+    });
+</script>
 </body>
 </html>
